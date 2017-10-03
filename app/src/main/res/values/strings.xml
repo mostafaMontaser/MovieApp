@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Movie App</string>
+    <string name="error">There Is A Network Issue \n Please Retry</string>
+    <string name="error_reviews">There Is A Network Issue \n Please Retry Loading Reviews</string>
+    <string name="error_trailers">There Is A Network Issue \n Please Retry Loading Trailers</string>
+    <string name="overview">Overview</string>
+    <string name="reviews">Reviews</string>
+    <string name="trailers">Trailers</string>
+    <string name="author">Review Author:</string>
+    <string name="no_reviews">No Reviews Found</string>
+    <string name="no_trailers">No Trailers Found</string>
+
+</resources>

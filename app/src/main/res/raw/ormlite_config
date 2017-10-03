@@ -1,0 +1,36 @@
+#
+#
+# --table-start--
+dataClass=udacity.movieapp.database.pojo.MovieDataBase
+tableName=movie
+# --table-fields-start--
+# --field-start--
+fieldName=id
+# --field-end--
+# --field-start--
+fieldName=title
+# --field-end--
+# --field-start--
+fieldName=release_date
+# --field-end--
+# --field-start--
+fieldName=poster_path
+# --field-end--
+# --field-start--
+fieldName=backdrop_path
+# --field-end--
+# --field-start--
+fieldName=overview
+# --field-end--
+# --field-start--
+fieldName=vote_average
+# --field-end--
+# --field-start--
+fieldName=reviews
+# --field-end--
+# --field-start--
+fieldName=trailers
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
