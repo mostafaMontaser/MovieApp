@@ -17,17 +17,14 @@ allprojects {
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
-android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
 
+android {
+    compileSdkVersion 28
+buildToolsVersion "28"
     defaultConfig {
         applicationId "com.example.sasa.myapplication"
         minSdkVersion 15
-        targetSdkVersion 23
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
