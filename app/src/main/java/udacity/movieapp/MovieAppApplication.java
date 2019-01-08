@@ -2,6 +2,8 @@ package udacity.movieapp;
 
 import android.app.Application;
 
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 import udacity.movieapp.service.DaggerServiceComponent;
 import udacity.movieapp.service.ServiceComponent;
 
@@ -21,5 +23,6 @@ public class MovieAppApplication extends Application {
         mServiceComponent = DaggerServiceComponent.builder()
                 .applicationModule(new ApplicationModule((getApplicationContext())))
                 .build();
+        Fabric.with(this, new Crashlytics());
     }
 }

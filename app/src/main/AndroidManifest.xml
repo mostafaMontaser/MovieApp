@@ -20,6 +20,9 @@
         </activity>
         <provider android:name=".database.contentprovider.MyProvider"
             android:authorities="com.movieapp"/>
+              <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="2507acd6e875bc5bde49cfed7b13784b5c6a412b" />
     </application>
 
 </manifest>

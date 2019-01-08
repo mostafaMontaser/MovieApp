@@ -1,13 +1,42 @@
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.mindera.gradle.slack'
+
+
 buildscript {
     repositories {
         jcenter()
+        maven {
+            url "https://jitpack.io"}
+        maven { url 'https://maven.fabric.io/public' }
     }
 
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.0-alpha3'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'com.github.Mindera:gradle-slack-plugin:1.0.7'
+
+    }
+}
+
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        // These docs use an open ended version so that our plugin
+        // can be updated quickly in response to Android tooling updates
+
+        // We recommend changing it to the latest version from our changelog:
+        // https://docs.fabric.io/android/changelog.html#fabric-gradle-plugin
+        classpath 'io.fabric.tools:gradle:1.+'
     }
 }
 
@@ -16,7 +45,21 @@ allprojects {
         jcenter()
     }
 }
-
+// Used by Jenkins to distribute apk among Internal Testers via Fabric Beta
+task internalQADist (type: GradleBuild) {
+    group 'MyApp Distribution'
+    description 'Task for Jenkins to distribute Build for Internal QA'
+    tasks = ['clean',
+             'cleanBuildCache',
+             'assembleInternalQA',
+             'crashlyticsUploadDistributionInternalQA']
+}
+slack {
+    url 'https://hooks.slack.com/services/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'
+    dependsOnTasks 'crashlyticsUploadDistributionInternalQA'
+    title "*```New Build Available  |  ${version} ] ```*https://fabric.io/mostafa-montaser/android/apps/com.example.sasa.myapplication/"
+    enabled = true
+}
 
 android {
     compileSdkVersion 28
@@ -61,4 +104,7 @@ dependencies {
     compile 'com.android.support:cardview-v7:23.2.0'
     compile 'com.j256.ormlite:ormlite-core:4.48'
     compile 'com.j256.ormlite:ormlite-android:4.48'
+    compile('com.crashlytics.sdk.android:crashlytics:2.9.8@aar') {
+        transitive = true;
+    }
 }
