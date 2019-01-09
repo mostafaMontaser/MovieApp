@@ -49,7 +49,7 @@ task internalQADist (type: GradleBuild) {
     group 'MyApp Distribution'
     description 'Task for Jenkins to distribute Build for Internal QA'
     tasks = ['clean',
-             
+             'cleanBuildCache',
              'assembleInternalQA',
              'crashlyticsUploadDistributionInternalQA']
 }
