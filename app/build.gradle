@@ -54,7 +54,7 @@ task internalQADist (type: GradleBuild) {
 }
 slack {
     url 'https://hooks.slack.com/services/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'
-    dependsOnTasks 'crashlyticsUploadDistributionInternalQA'
+    dependsOnTasks 'internalQADist'
     title "*```New Build Available  |  ${version} ] ```*https://fabric.io/mostafa-montaser/android/apps/com.example.sasa.myapplication/"
     enabled = true
 }
