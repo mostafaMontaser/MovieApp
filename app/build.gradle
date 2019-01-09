@@ -49,9 +49,8 @@ task internalQADist (type: GradleBuild) {
     group 'MyApp Distribution'
     description 'Task for Jenkins to distribute Build for Internal QA'
     tasks = ['clean',
-             'cleanBuildCache',
-             'assembleInternalQA',
-             'crashlyticsUploadDistributionInternalQA']
+             'assembleDebug',
+             'crashlyticsUploadDistributionDebug']
 }
 slack {
     url 'https://hooks.slack.com/services/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'
